@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* 过渡用4个css选择器,动画用2个css选择器.  选择器开头名字取自transition标签的name属性 */
+			/* .fade-enter-active,
+			.fade-leave-active {
+				transition: opacity .5s;
+			}
+			.fade-enter,
+			.fade-leave-to {
+				opacity: 0;
+			} */
+
+			.bounce-enter-active {
+				animation: bounce-in 2s linear reverse;
+			}
+
+			.bounce-leave-active {
+				animation: bounce-in 2s linear;
+			}
+
+			@keyframes bounce-in {
+				0% {
+					transform: translate(0, 0);
+				}
+
+				50% {
+					transform: translate(0, 200px);
+				}
+
+				100% {
+					transform: translate(0, 500px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="show = !show">Toggle show</button>
+			<transition name="bounce">
+				<p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+					diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+			</transition>
+		</div>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					show: true
+				}
+			})
+		</script>
+	</body>
+</html>

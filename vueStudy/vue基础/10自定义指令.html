@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-upper-text="msg1"></p>
+		</div>
+		
+		<div id="test">
+			<div v-lower-text="msg2"></div>
+		</div>
+		
+		<script type="text/javascript">
+			Vue.directive('lower-text',function(el,binding){
+				//console.log(binding)	//value:'How Are You' ;name:'lower-text';expression:'msg2'
+				let str=binding.value.toLowerCase()
+				el.innerText=str
+			})
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					msg1:"Hello World",
+					
+				},
+				directives:{'upper-text':function(el,binding){//el是p标签,binding是对象(拥有属性name,rawName,value,expression)
+						let str=binding.value.toUpperCase()//value为data里的msg1
+						//console.dir(el)
+						el.innerText=str+"233"	//将大写后的字符串输入到p标签中
+					}
+				}
+			})
+			
+			var vm2=new Vue({
+				el:"#test",
+				data:{
+					msg2:"How Are You"
+				}
+			})
+		</script>
+	</body>
+</html>

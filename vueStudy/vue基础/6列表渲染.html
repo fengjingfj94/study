@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2 >v-for遍历数组</h2>
+			<ul>
+				<li v-for="(p,index) in persons" :key="index">{{p.name}}{{index}} 
+				<button @click="upDateD(index)">删除</button>
+				<button @click="upDateU(index)">修改</button></li>
+			</ul>
+			<hr >
+			<h2>v-for遍历对象</h2>
+			<ul>
+				<li v-for="(value,key,index) in person" :key="key">{{key}}-{{value}}-{{index}}</li>
+			</ul>
+		</div>file:///C:/Users/Administrator/Documents/HBuilderProjects/vueStudy/index.html
+		
+		<script type="text/javascript">
+			var vm=new Vue({
+				
+				el:"#app",
+				data:{
+					persons:[{name:"张三"},{name:"李四"},{name:"王五"},{name:"赵六"},{name:"宋7"}],
+					person:{name:"小明",age:11,sex:"男"}
+				},
+				methods:{
+					upDateD(index){
+						this.persons.splice(index,1)
+					},
+					upDateU(index){
+						this.persons.splice(index,1,{name:"哈哈哈"})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

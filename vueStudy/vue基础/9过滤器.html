@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>显示格式化的日期事件</h2>
+			<p>普通实例化date：{{date}}</p>
+			
+			<!-- | 管道符左边的date为dateString的第一个实参 -->
+			<p>过滤器返回moment.js框架的date: {{date|dateString}}</p>
+			<!-- 自定义时间格式 -->
+			<p>过滤器返回moment.js框架的date传入参数: {{date|dateString('YYYY-MM-DD')}}</p>
+		</div>
+		
+		<script type="text/javascript">
+			Vue.filter('dateString',function(value,format){
+				return moment(value).format(format || 'YYYY-MM-DD  HH:mm:ss');
+			})
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					date:new Date()
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--
+1. 绑定监听:
+  v-on:xxx="fun"
+  @xxx="fun"
+  @xxx="fun(参数)"
+  默认事件形参: event
+  隐含属性对象: $event
+2. 事件修饰符:
+  .prevent : 阻止事件的默认行为 event.preventDefault()
+  .stop : 停止事件冒泡 event.stopPropagation()
+3. 按键修饰符
+  .keycode : 操作的是某个keycode值的健
+  .enter : 操作的是enter键
+-->
+
+<div id="example">
+
+  <h2>1. 绑定监听</h2>
+ 
+  <button @click="test3('abcd', $event)">test3</button>
+
+  <h2>2. 事件修饰符</h2>
+  <a href="http://www.baidu.com" @click.prevent="test4">百度一下</a>
+  <div style="width: 200px;height: 200px;background: red" @click="test5">
+    <div style="width: 100px;height: 100px;background: blue" @click.stop="test6"></div>
+  </div>
+
+  <h2>3. 按键修饰符</h2>
+  <input type="text" @keyup="test7">
+  <input type="text" @keyup.enter="test7">
+
+</div>
+
+
+<script type="text/javascript">
+  new Vue({
+    el: '#example',
+    data: {
+
+    },
+    methods: {
+      test3 (msg, event) {//事件实参需要传入$event
+		 // console.dir(event)
+        console.log(msg+'---'+event.target.textContent)
+      },
+
+      test4 () {//@click.stop阻止页面跳转
+        console.log('点击了链接')
+      },
+
+      test5 () {
+        console.log('out')
+      },
+      test6 () {//点击事件.stop阻止冒泡
+        console.log('inner')
+      },
+
+      test7 (event) {
+		  //console.dir(event)
+        console.log(event.keyCode)	//键盘码
+        console.log(event.target.value)	//目标里的值
+      }
+    }
+  })
+</script>
+
+	</body>
+</html>

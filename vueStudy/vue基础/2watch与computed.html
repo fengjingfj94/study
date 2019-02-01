@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>VUE.JS</title>
+  
+  <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+ 
+<div id="app">
+	a值：<input type="text" name="" id="" value="" v-model="a"/>
+	b值：<input type="text" name="" id="" value="" v-model="b"/>
+	c值（单向）<input type="text" name="" id="" value="" v-model="c" />
+	<hr >
+	f计算值(返回e的值)（双向）<input type="text" name="" id="" value=""  v-model="f"/>
+	<button type="button" @click="change">改变e的值{{e}}</button>
+	<hr >
+	d计算的值：{{d}}
+	
+	
+</div>
+	<script type="text/javascript">
+		
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				a:'1',
+				b:'2',
+				c:'',
+				e:0
+			},
+			methods:{
+				change(){
+					this.e+=1
+					
+				}
+			},
+			computed:{//计算  1.属性d不能在data中被定义,
+							//2.必须在html中以v-model="d"或{{}}绑定
+							//3.return的值变化时触发,初始化也触发一次
+				d(){
+					console.log("computed方法d触发")
+					return this.e  //4.相当在data中添加了一个属性名,所以要return一个属性值
+				},	
+				f:{		//作为computed的属性,计算属性存在缓存,多次读取只执行一次getter计算
+					get(){		//return的值变化时触发,get中不能使用this.f
+						console.log("computed方法f.get()触发,")
+						return this.e
+					},set(newv){//监视当前属性f变化,和watch类似，但是参数只有newvalue
+								//get()方法改变当前值,
+						console.log("computed方法f.set()触发，newv:"+newv)
+					}
+					
+				}
+			},
+			watch:{ 	//监视1		
+					a(newv,oldv){	//监视data中的a属性值
+					//console.log(this.a)
+						console.log("watch方法触发,a的newv值是"+newv+",oldv值是"+oldv)
+								}
+					},
+		})
+		
+		vm.$watch("b",function(newv,oldv){  //监视2  data中的b改变时触发
+			console.log("watch方法触发，b的新值是"+newv+",旧值是"+oldv)
+		})
+	</script>
+
+</body>
+</html>
+      

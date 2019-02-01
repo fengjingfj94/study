@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<son @func="getson"></son>
+		</div>
+
+		<template id="tmp">
+			<div>
+				<h3>子组件模板</h3>
+				<hr> <button @click="sendMsg">点我</button>
+			</div>
+		</template>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#app",
+				data: {},
+				methods: {
+					getson(sonmsg) {
+						console.log("子组件的数据是："+sonmsg)
+					}
+				},
+				components: {
+					son: {
+						template: "#tmp",
+						data: function() {
+							return {
+								msg: "这是子组件中的数据"
+							}
+						},
+						methods: {
+							sendMsg() {
+								//console.log(this.msg)
+								this.$emit('func',this.msg)
+								//console.log("send方法触发")
+							}
+						}
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

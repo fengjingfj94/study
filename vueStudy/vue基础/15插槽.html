@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 2. 在子组件指定插槽s1中传入标签 -->
+			<alert-box><div slot="s1">给s1插槽传入标签</div></alert-box>
+			<hr>
+		</div>
+
+		<template id="tmpl">
+			<div >
+				<strong>Error!</strong>
+				<!-- 1. 使用slot标签，接收父组件传入的innerHtml -->
+				<slot name="s1">不确定的标签结构1，占位置</slot>
+				<slot name="s2">不确定的标签结构2，占位置</slot>
+			</div>
+		</template>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#app",
+				data: {},
+				components: {
+					'alert-box': {
+						template: '#tmpl'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
