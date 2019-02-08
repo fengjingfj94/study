@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<p>这是p标签</p>
+		
+	<script type="text/javascript">
+		//clone([Even[,deepEven]])
+		$(function(){
+			var $a=$(".a")
+			$("p").clone().appendTo($a)	//复制一份p标签,并分别添加到另一元素
+		})
+	</script>
+</html>

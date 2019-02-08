@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style type="text/css">
+			div{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test" class="a" >1</div>
+		<div class="a" style="color: #0000FF;">2</div>
+		<div class="a">3</div>
+		
+	<script type="text/javascript">
+		//css(name|pro|[,val|fn])
+		$(function(){
+			var $a=$(".a")
+			//console.log( $a.css("color"));//获取第一个元素的样式,rgb(255, 0, 0)
+			//$a.css({ "color": "#ff0011", "background": "blue" });
+			$a.css("color","red");
+			
+		})
+	</script>
+</html>

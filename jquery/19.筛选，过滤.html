@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a">1</div>
+		<div class="a"><b>这是B元素</b></div>
+		<div class="a"><p>这是p元素</p></div>
+		
+	<script type="text/javascript">
+		//返回值:jQueryeq(index|-index)
+		//first()
+		//last()
+		//hasClass(class)
+		//filter(expr|obj|ele|fn)
+		//is(expr|obj|ele|fn)	
+		//map(callback)将一组元素转换成其他类数组（不论是否是元素数组)
+		//has(expr|ele)	保留包含指定后代的元素
+		//not(expr|ele|fn)	返回一个不包含指定元素的jq数组,不操纵dom对象
+		//slice(start, [end]) 选取一个匹配的子集与原来的slice方法类似
+
+
+
+		
+		$(function(){
+			var $a=$(".a")
+			// console.log( $a.eq(1).html()) //第二个div标签
+			// console.log($a.filter("#test"))
+			
+// 				$a.map(function(){//转换成jq类数组 1,2,3
+// 				return $(this).html()
+// 			})
+
+				// $a.has("p").css('background-color','red')
+				
+				//console.log( $a.not("#test"))
+				
+				$a.slice(0,1).remove()
+				
+			
+		
+			
+		})
+	</script>
+</html>

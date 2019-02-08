@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a" data-aa></div>
+		<div class="a"></div>
+		
+	<script type="text/javascript">
+		//data([key],[value]) 向jq对象设置值
+		//removeData([name|list])  
+		$(function(){
+			var $a=$(".a")
+			$a.data("aa", "hello");  // 设置值
+			$a.data("test", { first: 16, last: "pizza!" });
+			console.log($a.data("aa"))//取值
+			console.log("-------")
+			console.log($a.data("test").first)
+			
+			$a.removeData("aa")			//删除值
+			console.log($a.data("aa"))	//undefined
+				
+		})
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="a">111</div>
+		<div class="a">222</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				var $a=$(".a")
+				//1.each(callback)//遍历jq对象
+// 				$(".a").each(function(index,dom){
+// 					//console.dir(this)
+// 					console.log(index)
+// 					console.log(dom)
+// 				})
+			
+				//2.jq对象的元素长度
+//				console.log($(".a").size());
+//				console.log($(".a").length)
+				
+				//.原始选择器。对象是由什么选择器创建的
+				console.log($a.selector)
+			})
+		</script>
+	</body>
+</html>

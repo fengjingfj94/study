@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<p>这是P元素</p>
+		
+	<script type="text/javascript">
+		//replaceWith(content|fn)	将匹配元素替换成指定元素
+		//replaceAll(selector)		将指定元素替换成匹配元素
+		$(function(){
+			var $a=$(".a")
+			//$a.replaceWith("<p>替换成p元素</p>")
+			$("p").replaceAll("div")
+		})
+	</script>
+</html>

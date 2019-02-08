@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"><p>这是P</p></div>
+		<div class="a"><sanp>这是span</sanp></div>
+		<div class="a">3</div>
+		
+	<script type="text/javascript">
+		//children([expr])	获取每个元素中的子元素
+		//find(expr|obj|ele)	获取每个匹配元素指定的后代元素
+		//next([expr])
+		//offsetParent()	这返回父元素中第一个其position设为relative或者absolute的元素。此方法仅对可见元素有效。
+		//parent([expr])	取得一个包含着所有匹配元素的唯一父元素的元素集合。
+
+
+
+		$(function(){
+			var $a=$(".a")
+			// console.log( $a.children())
+			//console.log( $a.find("p"))
+			console.log( $($a[0]).next())	//
+			
+		})
+	</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.入口函数jQuery(callback) ，是 $(document).ready()的简写。
+			//此函数在html 所有标签(DOM)都加载之后，就会去执行。
+			//而JavaScript 的 window.onload 事件是等到所有内容，包括外部图片之类的文件加载完后，才会执行。
+			$(function(){
+				console.log("dom加载完成后执行");
+				console.log(this)	//this 是document
+			})
+			
+			//2.jQuery([selector,[context]]),通过选择器匹配一组元素
+			//context:作为待查找的 DOM 元素集、文档或 jQuery 对象。默认在当前document中查找
+			$(function(){
+				console.log($(".a"))	//[div.a, div.a, prevObject: jQuery.fn.init[1], context: document, selector: ".a"]
+			})
+			
+			//3.（少用）jQueryjQuery(html,[ownerDocument])   通过标签字符串创建jq对象
+			$(function(){
+				//只传一个参数
+				$("<div><p>Hello</p></div>").appendTo("body");  //创造元素并添加到body标签中
+				//第二个参数为对象,设置标签的属性、事件和方法
+				$("<div></div>", {
+					  "class": "test",
+					  text: "Click me!",
+					  click: function(){
+						$(this).toggleClass("test");
+					  }
+					}).appendTo("body");
+				})
+				
+				//4.通过dom对象,创建jquery对象
+				$(function(){
+					$(document.documentElement)//[div.a, div.a, prevObject: jQuery.fn.init[1], context: document, selector: ".a"]
+				})
+
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div class="a" style="width: 200px;height: 200px;background-color: aqua;"></div>
+		<div class="a"></div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a"></div>
+		<div class="a"><p>这是子节点</p></div>
+		
+	<script type="text/javascript">
+		//empty() 删除匹配元素所有子节点
+		//remove() 删除匹配元素自身
+		//detach()	不会从JQ对象中删除,与remove()不同,此方法保留所有绑定的事件,数据
+		$(function(){
+			var $a=$(".a")
+			// $a.empty()
+			$a.remove()
+		})
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		
+	<script type="text/javascript">
+		//attr(name|properties|key,value|fn) 给元素设置属性
+		//prop(name|properties|key,value|fn) 用法相同,专门设置元素自带布尔值属性
+		$(function(){
+			var $a=$(".a")
+// 			console.log( $a.attr("id"))	//test
+// 			$a.attr("n","v")		//给元素添加属性为n,值为v
+			$a.attr({"k":"v","a":"b"})	//给元素添加多个属性
+			$a.removeAttr("k")			//删除元素的k属性
+			
+		})
+	</script>
+</html>

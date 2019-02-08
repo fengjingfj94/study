@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<p>这是p标签</p>
+		<p>这是第二个p标签</p>
+		
+	<script type="text/javascript">
+		//wrap(html|element|fn)	让匹配元素分别被另一个元素包裹
+		// unwrap()				让匹配元素分别解除被另一个元素包裹
+		//wrapAll(html|ele) 让所有匹配元素被另一个元素包裹
+		//wrapInner(htm|element|fnl)每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来
+	
+		$(function(){
+			var $a=$(".a")
+			//$("p").wrap($a)
+			//$("p").unwrap()	//<div id="test" class="a"><p>这是p标签</p></div>
+		//	$("p").wrapAll($a)
+		//$("p").wrapInner("<b></b>")//<p><b>这是p标签</b></p>
+		})
+	</script>
+</html>
