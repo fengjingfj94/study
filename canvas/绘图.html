@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				
+				background: rgba(255,0,0,0.1);
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+		</style>
+	</head>
+	
+	<body>
+		<canvas id="test" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.querySelector("#test")
+			if(canvas.getContext){
+ 				var ctx=canvas.getContext("2d")
+				var img=new Image(150,100)
+				img.src="xiongda2.jpg"
+				img.onload=function(){
+					draw()
+				}
+				
+				function draw(){
+					ctx.drawImage(img,10,10,img.width,img.height)
+// 					var pat=ctx.createPattern(img,"no-repeat");//设置背景图
+ //					ctx.rect(0,0,500,500);//设置矩形大小
+// 					ctx.fillStyle=pat;//将createPattern返回的函数作为填充样式值
+// 					ctx.fill();
+// 					var grad=ctx.createLinearGradient(0,0,500,500);//控制渐变方向
+// 					grad.addColorStop(0,"black");//0%时的渐变颜色
+// 					grad.addColorStop(1,"blue");//100%时的渐变颜色
+// 					ctx.fillStyle=grad; 	//将渐变对象给填充样式
+// 					ctx.rect(0,0,500,500);//设置矩形大小
+// 					ctx.fill();
+						var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+						grd.addColorStop(0,"red");
+						grd.addColorStop(0.5,"white");
+						grd.addColorStop(1,"blue");
+
+						// Fill with gradient
+						ctx.fillStyle=grd;
+						ctx.fillRect(10,10,150,100);
+				}
+				
+				
+			}
+		}
+	</script>
+</html>
